@@ -1,0 +1,33 @@
+.notification {
+    padding: 5px;
+}
+
+.notificationMessage {
+    text-indent: 50px;
+    padding: 3px;
+}
+
+.notificationFooter {
+    font-size: 10px;
+    padding: 3px;
+}
+
+.notification-header {
+    width: 100%;
+    padding: 3px;
+    background-color: #D6EAFF;
+
+    border-top-left-radius:0em;
+    border-top-right-radius:2em;
+    border-bottom-right-radius:0em;
+    border-bottom-left-radius:0em; 
+}
+
+.notification-content {
+    background-color: #FFFFFF;
+    padding: 3px;
+    border-top-left-radius:0em;
+    border-top-right-radius:0em;
+    border-bottom-right-radius:0em;
+    border-bottom-left-radius:2em; 
+}

@@ -1,0 +1,16 @@
+<template name="bans"> 
+{{#if visible}} 
+	{{#each banned}}
+		<form class="unbanRoom">
+			<input type="text" name="room" size="3" maxlength="3" disabled="disabled" value="{{room}}">
+			<button type="submit" class="banBtn"><img height="10px" width="10px" src="/img/reject.png"></button>
+		</form>
+	{{/each}}
+		<form class="banRoom">
+			<input type="text" name="room" size="3" maxlength="3" autocomplete="off">
+			<button type="submit" class="banBtn"><img height="10px" width="10px" src="/img/accept.png"></button>
+		</form>
+{{else}} 
+not allowed 
+{{/if}} 
+</template>

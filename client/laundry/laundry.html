@@ -1,0 +1,51 @@
+<template name="laundry"> 
+{{> reservationsTable }}
+</template>
+
+<template name="reservationsTable">
+<table class="schedule">
+{{#each schedule}}
+    {{#if compare weekEven true}} 
+        <tr>
+        <td class="week-even">{{day}}.{{ month }}</td> {{#each status}} <td> {{> status }} </td> {{/each}}
+        </tr>
+    {{else}}
+        <tr>
+        <td class="week-odd">{{day}}.{{ month }}</td> {{#each status}} <td> {{> status }} </td> {{/each}}
+        </tr>
+    {{/if}} 
+{{/each}}
+</table>
+</template>
+    
+<template name="status">
+{{#if compare usage -1}} 
+    {{#if compare banned true }} 
+        <button class="reservationBtn udReservation" type="button" disabled="true">{{interval.lower.hour}}<sup>{{interval.lower.minutes}}</sup> - {{interval.upper.hour}}<sup>{{interval.upper.minutes}}</sup></button>
+    {{else}}
+        <form class="doReservation">
+            <button class="reservationBtn reservation" type="submit">
+            <input type="hidden" name="day" value="{{ ../day }}">
+            <input type="hidden" name="month" value="{{ ../month }}">
+            <input type="hidden" name="year" value="{{ ../year }}">
+            <input type="hidden" name="intervalId" value="{{ id }}">
+            {{interval.lower.hour}}<sup>{{interval.lower.minutes}}</sup> - {{interval.upper.hour}}<sup>{{interval.upper.minutes}}</sup>
+            </button>
+        </form>
+    {{/if}} 
+{{else}}
+    {{#if compare usage room }} 
+        <form class="rejectReservation">
+            <button class="reservationBtn rejection" type="submit">
+            <input type="hidden" name="day" value="{{ ../day }}">
+            <input type="hidden" name="month" value="{{ ../month}}">
+            <input type="hidden" name="year" value="{{ ../year }}">
+            <input type="hidden" name="intervalId" value="{{ id }}">
+            {{interval.lower.hour}}<sup>{{interval.lower.minutes}}</sup> - {{interval.upper.hour}}<sup>{{interval.upper.minutes}}</sup>
+            </button>
+        </form>
+    {{else}} 
+        <button class="reservationBtn usedReservation" type="button" disabled="true">{{usage}}</button>
+    {{/if}} 
+{{/if}} 
+</template>

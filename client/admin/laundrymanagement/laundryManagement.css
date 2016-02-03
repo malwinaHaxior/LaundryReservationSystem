@@ -1,0 +1,12 @@
+.timeSlicesTable {
+	margin: 5px;
+	width: 100%;
+	border-style: solid;
+	border-width: 1px;
+}
+
+.timeSlicesTable tr td {
+	border-style: solid;
+	border-width: 1px;
+	padding: 5px;
+}

@@ -1,0 +1,35 @@
+/* Colour scheme FFF6CA	C2BDA4	AA9946	FFF8D8	FFFAE2 */
+
+body {
+    background-image: url("background.png");/*#FFFAE2;*/
+}
+    
+#page {
+    max-width: 1024px;
+    margin: 2em auto;
+    margin-top: 2em;
+    margin-right: auto;
+    margin-bottom: 2em;
+    margin-left: auto;
+}
+
+#mainMenu {
+    background: #FDD30A;
+}
+
+#contentOutline {
+    background: #F9F4E8;
+    padding: 10px;
+}
+
+#pageContent {
+
+}
+
+#footer {
+
+}
+
+#userInfo {
+    line-height: 50%;
+}

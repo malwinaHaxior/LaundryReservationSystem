@@ -1,0 +1,13 @@
+<template name="adminLogin"> 
+{{ #if loggedIn }}
+    <p>You're currently logged in, admin.</p>
+{{ else }}
+    <form class="login">  
+    <fieldset>
+        <p><label for="username">Username</label><input type="text" id="username" name="username" size="10" maxlength="25" autocomplete="off"></p>
+        <p><label for="password">Password</label><input type="password" id="password" name="password" size="10" maxlength="25" autocomplete="off"></p>
+        <p><button type="submit">Login</button></p>
+    </fieldset>
+    </form>
+{{ /if }}
+</template>

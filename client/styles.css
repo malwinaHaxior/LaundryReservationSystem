@@ -1,0 +1,15 @@
+/* global CSS declarations go here */
+
+body {
+	margin: 20px;
+	font-family: Sans-Serif;
+	font-variant: normal;
+}
+
+button {
+	
+}
+
+button:hover {
+	cursor: pointer;
+}

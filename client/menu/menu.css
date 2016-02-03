@@ -1,0 +1,82 @@
+ol.upperMenu {
+    list-style-type:none;
+    padding: 0;
+    margin: 0;
+    background: #D6EAFF;
+    font-size: 12px;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+}
+
+/* all links in upper menu */
+ol.upperMenu a {
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    color: #000000;
+    padding: 0 5px;    
+}
+
+ol.upperMenu > li {
+    float: left;
+    width: 150px;
+    margin-left: 1px;
+    background-color: #D6EAFF;
+    height: 2em;
+}
+
+ol.upperMenu > li:first-child {
+    margin-left:0;
+}
+
+ol.upperMenu > li:hover {
+    background-color: #FFFFFF;
+}
+
+/* wygl¹d elementu - a - dziecka elementu - li - bêd¹cego dzieckiem elementu - ol - po najechaniu kursorem myszki na element - li */
+ol.upperMenu > li:hover > a {
+    color: #000000;
+}
+
+/* wygl¹d elementu - ul - dziecka elementu - li - bêd¹cego dzieckiem elementu - ol - po najechaniu kursorem myszki na element - li */
+ol.upperMenu > li:hover > ul {
+    display:block;
+}
+
+/* wygl¹d g³ównych rozwijanych elementów - ul */
+ol.upperMenu > li > ul {
+    display:none;
+    list-style-type:none;
+    padding:0;
+    margin:0;
+    background: #B2E9FF;
+}
+
+/* wygl¹d elementu - li - w czêœci rozwijanej */
+ol.upperMenu > li > ul > li {
+    position:relative;
+    background: #B2E9FF;
+}
+
+/* wygl¹d elementu - a - w czêœci rozwijanej */
+ol.upperMenu > li > ul > li > a {
+    border-top:1px solid #000;
+}
+
+/* wygl¹d elementu - li - w czêœci rozwijanej, po najechaniu kursorem myszki na dany element - li */
+ol.upperMenu > li > ul > li:hover {
+    background-color: #DDD;
+}
+
+/* wygl¹d elementu - a - w czêœci rozwijanej, po najechaniu kursorem myszki na element - li */
+ol.upperMenu > li > ul > li:hover > a {
+    color:#09C;
+}
+
+.upper-menu-footer {
+    width: 100%;
+    height: 4px;
+    background: #B2E9FF;
+    float: left;
+}

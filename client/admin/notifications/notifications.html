@@ -1,0 +1,23 @@
+<template name="notifications"> 
+<p>List of current notifications</p>
+{{ #each notifications }} {{> notificationDisplay }} {{ /each }}
+<p>Add new notification</p>
+    <form class="addNotification">  
+    <fieldset>
+        <p><label for="author">Author</label><input type="text" id="author" name="author" size="10" maxlength="25" autocomplete="off"></p>
+        <p><label for="title">Title</label><input type="text" id="title" name="title" size="10" maxlength="25" autocomplete="off"></p>
+        <p><label for="message">Content</label><textarea rows="4" cols="50" id="message" name="message" autocomplete="off"></textarea></p>
+        <p><button type="submit" class="banBtn"><img height="10px" width="10px" src="/img/accept.png"></button></p>
+    </fieldset>
+    </form>
+</template>
+    
+<template name="notificationDisplay">
+    <form class="removeNotification">
+        <p>
+        Author: {{ author }}, date: {{ creationDate }}. Title: {{ title }}
+        <input type="hidden" name="id" value="{{_id}}">
+        <button type="submit" class="banBtn"><img height="10px" width="10px" src="/img/reject.png"></button>
+        </p>
+    </form>
+</template>

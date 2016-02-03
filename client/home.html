@@ -1,0 +1,29 @@
+<template name="ApplicationLayout">
+    <div id="page">
+        <header>
+            <h1>Laundry Reservation System</h1>
+        </header>
+        {{> yield "logo"}}
+        <div id="mainMenu">
+            {{> yield "upperMenu"}}
+        </div>
+        <div id="contentOutline">    
+            <div id="userInfo">    
+            {{> userInfoTmpl }}   
+            </div>
+            <div id="pageContent">
+                {{> yield }}
+            </div>
+        </div>
+        <div id="footer">
+            {{> yield "footer"}}
+        </div>
+    </div>
+</template>
+
+
+<template name="userInfoTmpl"> 
+<p>Your room: {{ room }}</p>
+{{#if banned}}<p>You are banned! Contact with admin in order to clarify this situation.</p>{{/if}}
+<p>Your access level: {{ accessLevel }}</p>
+</template>

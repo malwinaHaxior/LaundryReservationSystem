@@ -1,0 +1,33 @@
+<template name="upperMenu"> 
+<ol class = "upperMenu">
+    <li><a href="/">Main page</a></li>
+    <li><a href="#">Laundries</a>
+        <ul>
+         {{#each laundries}} {{> laundryOption }} {{/each}}
+        </ul>
+    </li>
+    {{#if compare isAdmin true}} 
+        <li><a href="#">Admin Panel</a>
+            <ul>
+             <li><a href="/admin/bans">Bans</a></li>
+             <li><a href="/admin/notifications">Notifications</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Laundry Management</a>
+            <ul>
+             {{#each laundries}} {{> laundryManagementOption }} {{/each}}
+            </ul>
+        </li>
+        <div class="upper-menu-footer">&nbsp;
+        </div>
+    {{/if}} 
+</ol>
+</template>
+    
+<template name="laundryOption">
+        <li><a href="/laundry/{{shortIndex}}">{{name}}</a></li>
+</template>
+
+<template name="laundryManagementOption">
+        <li><a href="/admin/laundryManagement/{{shortIndex}}">{{name}}</a></li>
+</template>

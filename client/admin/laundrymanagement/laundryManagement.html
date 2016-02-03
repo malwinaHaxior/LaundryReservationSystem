@@ -1,0 +1,77 @@
+<template name="laundryManagement"> 
+
+{{#if visible}} 
+	<p>Selected laundry name: {{ laundry.name }} </p>
+    <p>Time slices applied to this laundry: </p>
+    {{#each timeSlices}} {{> laundryTimeSlice }} {{/each}}
+    
+    <form class=createNewTimeSlice>
+    	<input type="hidden" id="shortIndex" value={{laundry.shortIndex}}>
+    	<button type="submit" class="createNewTimeSliceBtn">Create</button>
+    </form>
+{{else}} 
+	not allowed 
+{{/if}} 
+   
+</template>
+
+<template name="laundryTimeSlice">
+		<table class="timeSlicesTable">
+			<tr><td width="200px"> Begin date</td><td>Time dividers</td><td></td></tr>
+			<tr><td>
+				{{#if compare editable true}}
+					<form class=updateStartDate style="display: inline;">
+			    			<input type="hidden" id="timeSliceID" value={{object._id}}>
+			    			{{> beginDatePicker date = startDateAsPlainText timeSliceID = object._id }}
+			    			<button type="submit" class="addTimeIntervalBtn"><img height="10px" width="10px" src="/img/accept.png"></button>&nbsp;
+				    </form>
+				{{else}}
+					{{ startDateAsPlainText }}
+				{{/if}}
+			</td><td>
+				{{ #each object.timeIntervals }}
+			    	{{ hour }}:{{ minutes }}
+			    	{{#if compare ../editable true}}
+			    		<form class=deleteTimeInterval style="display: inline;">
+			    			<input type="hidden" id="timeSliceID" value={{../object._id}}>
+			    			<input type="hidden" id="timeSliceBegin" value={{ hour }}:{{ minutes }}>
+				    		<button type="submit" class="deleteTimeIntervalBtn"><img height="10px" width="10px" src="/img/reject.png"></button>&nbsp;
+				    	</form>
+			    	{{/if}}
+			    {{/each}}
+			    {{#if compare editable true}}
+			    	<form class=addTimeInterval>
+				     	{{> timepicker}}
+				     	<input type="hidden" id="timeSliceID" value={{object._id}}>
+						<button type="submit" class="addTimeIntervalBtn"><img height="10px" width="10px" src="/img/accept.png"></button>&nbsp;
+					</form>
+			    {{/if}}
+			</td>
+			<td width="100px">
+				<form class=removeTimeSlice>
+					<input type="hidden" id="timeSliceID" value={{object._id}}>
+					<button type="submit" class="removeTimeSliceBtn" disabled={{compare editable false}}><img height="10px" width="10px" src="/img/reject.png">Remove</button>
+				</form>
+			</td></tr> 
+		</table>
+</template>
+
+<template name="beginDatePicker">
+	<div class="form-group" style="width: 150px;">
+		<div class='input-group date'>
+			<input id='datePicker' type='text' class="form-control" value="{{date}}"/>
+			<span class="input-group-addon">
+				<span class="glyphicon glyphicon-calendar"></span>
+			</span>
+		</div>
+	</div>
+</template>
+
+<template name="timepicker">
+	<span class='input-group timepicker' style="float: left; width: 100px;">
+		<input id="timePicker" type='text' class="form-control"/>
+		<span class="input-group-addon">
+			<span class="glyphicon glyphicon-time"></span>
+		</span>
+	</span>
+</template>
